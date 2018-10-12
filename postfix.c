@@ -77,6 +77,47 @@ int infixtopostfix(char infix[],char postfix[])
 }
 
 
+void postfixEvaluation(char postfix[])
+{
+  char ch;
+  int a,b,c, result, i=0;
+
+  while(ch = postfix[i++] != '\0')
+  {
+    if (isdigit(ch))
+    {
+      push(ch-'0');
+    }
+    else
+    {
+      b = pop();
+      a = pop();
+
+      if (ch == '+')
+      {
+        c = a + b;
+      }
+      else if (ch == '-')
+      {
+        c = a - b;
+      }
+      else if (ch == '*')
+      {
+        c = a * b;
+      }
+      else if (ch == '/')
+      {
+        c = a / b;
+      }
+      push(c);
+    }
+  }
+  
+  result = pop();
+  printf("\n After Evaluation   : %d",eval)
+}
+
+
 void main()
 {
     char infix[15],postfix[15];
@@ -85,7 +126,11 @@ void main()
 
     infixtopostfix(infix, postfix);
     printf("\n The postfix expression is   : %s",postfix);
+
+    postfixEvaluation(postfix);
+
     printf("\n");
 }
+
 
 
