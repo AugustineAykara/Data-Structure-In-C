@@ -114,7 +114,7 @@ void postfixEvaluation(char postfix[])
   }
   
   result = pop();
-  printf("\n After Evaluation   : %d",eval)
+  printf("\n After Evaluation   : %d",result)
 }
 
 
