@@ -20,7 +20,7 @@ char pop()
 
 int precedence(char c)
 {  
-	if(c == '(')
+  	if(c == '(')
    		return 0;
     else if(c == '+' || c == '-')
     	return 1;
@@ -31,7 +31,7 @@ int precedence(char c)
 }
 
 
-int infixtopostfix(char infix[],char postfix[])
+void infixToPostfix(char infix[],char postfix[])
 {
     char item, x;
     int i=0, j=0;
@@ -40,36 +40,36 @@ int infixtopostfix(char infix[],char postfix[])
     {
        item = infix[i];
 
-       if(isalnum(item))
+        if(isalnum(item))
         {
    		    postfix[j++] = item;
         }
 
-        else if(item=='(')
+        else if(item == '(')
         {
-     		push(item);
+     	  	push(item);
         }
 
         else if(item==')')
         {
-         	while((x=pop()) != '(')
+         	while((x = pop()) != '(')
          	{
-          		postfix[j++]=x;
-           	}
+          		postfix[j++] = x;
+          }
         }
 
         else
         {  
       	 	while(precedence(stack[top]) >= precedence(item))
-            {
-            	postfix[j++] = pop();
-            }
-            push(item);
+          {
+            postfix[j++] = pop();
+          }
+          push(item);
         }
         i++;
     }
 
-    while(top!= -1)
+    while(top != -1)
     {
    		postfix[j++] = pop();
     }
@@ -79,58 +79,57 @@ int infixtopostfix(char infix[],char postfix[])
 
 void postfixEvaluation(char postfix[])
 {
-  char ch;
-  int a,b,c, result, i=0;
+    char ch;
+    int a,b,i;
 
-  while(ch = postfix[i++] != '\0')
-  {
-    if (isdigit(ch))
+    for(i=0; postfix[i] != '\0'; i++)
     {
-      push(ch-'0');
-    }
-    else
-    {
-      b = pop();
-      a = pop();
+        ch = postfix[i];
 
-      if (ch == '+')
-      {
-        c = a + b;
-      }
-      else if (ch == '-')
-      {
-        c = a - b;
-      }
-      else if (ch == '*')
-      {
-        c = a * b;
-      }
-      else if (ch == '/')
-      {
-        c = a / b;
-      }
-      push(c);
+        if(isdigit(ch))
+        {
+            push(ch-'0');
+        }
+
+        else
+        {
+            b = pop();
+            a = pop();
+                
+            switch(ch)
+            {
+              case '+': push(a+b);
+                break;
+              case '-': push(a-b);
+                break;
+              case '*': push(a*b);
+                break;
+              case '/': push(a/b);
+                break;
+            }
+        }   
     }
-  }
-  
-  result = pop();
-  printf("\n After Evaluation   : %d",result)
+
+    printf("\n The postfix evaluation is   : %d", stack[top]);
 }
 
 
 void main()
 {
     char infix[15],postfix[15];
+
     printf("\n Enter the infix expression  : ");
     scanf("%s", infix);
 
-    infixtopostfix(infix, postfix);
-    printf("\n The postfix expression is   : %s",postfix);
+    infixToPostfix(infix, postfix);
+    printf(" The postfix expression is   : %s",postfix);
 
     postfixEvaluation(postfix);
 
     printf("\n");
 }
+
+
 
 
 
