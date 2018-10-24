@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 
-void selectionSort(int arr[], int s)
+void bubbleSort(int arr[], int s)
 {
 	int i, j, temp;
 
@@ -40,5 +40,5 @@ void main()
 		scanf("%d", &arr[i]);
 	}
 
-	selectionSort(arr, size);
+	bubbleSort(arr, size);
 }
