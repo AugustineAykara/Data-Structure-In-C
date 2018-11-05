@@ -1,3 +1,5 @@
+/*code written in C*/
+/*To search elements in a binary search tree*/
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -28,6 +30,32 @@ void inorder(struct node *r)
 		inorder(ptr -> lc);
 		printf(" %d ", ptr -> data);
 		inorder(ptr -> rc);	
+	}
+	
+}
+void preorder(struct node *r)
+{
+	struct node *ptr;
+	ptr = r;
+
+	if(ptr != NULL)
+	{
+		printf(" %d ", ptr -> data);
+		preorder(ptr -> lc);
+		preorder(ptr -> rc);	
+	}
+	
+}
+void postorder(struct node *r)
+{
+	struct node *ptr;
+	ptr = r;
+
+	if(ptr != NULL)
+	{
+		postorder(ptr -> lc);
+		postorder(ptr -> rc);	
+		printf(" %d ", ptr -> data);
 	}
 	
 }
@@ -81,7 +109,15 @@ void insertion()
 		}
 	}
 
+	printf("Inorder:");
 	inorder(root);
+	printf("\n");
+	printf("Preorder: ");
+	preorder(root);
+	printf("\n");
+	printf("Postorder: ");
+	postorder(root);
+	printf("\n");
 }
 
 void main()
