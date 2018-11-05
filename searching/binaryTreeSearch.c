@@ -111,13 +111,13 @@ void insertion()
 
 	printf("Inorder:");
 	inorder(root);
-	printf("\n);
+	printf("\n");
 	printf("Preorder: ");
 	preorder(root);
-	printf("\n);
+	printf("\n");
 	printf("Postorder: ");
 	postorder(root);
-	printf("\n);
+	printf("\n");
 }
 
 void main()
