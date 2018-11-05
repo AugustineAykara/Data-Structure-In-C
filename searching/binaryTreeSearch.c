@@ -33,19 +33,21 @@ void inorder(struct node *r)
 	}
 	
 }
+
 void preorder(struct node *r)
 {
 	struct node *ptr;
 	ptr = r;
 
 	if(ptr != NULL)
-	{
+	{	
 		printf(" %d ", ptr -> data);
 		preorder(ptr -> lc);
 		preorder(ptr -> rc);	
 	}
 	
 }
+
 void postorder(struct node *r)
 {
 	struct node *ptr;
@@ -54,8 +56,8 @@ void postorder(struct node *r)
 	if(ptr != NULL)
 	{
 		postorder(ptr -> lc);
-		postorder(ptr -> rc);	
-		printf(" %d ", ptr -> data);
+		postorder(ptr -> rc);
+		printf(" %d ", ptr -> data);	
 	}
 	
 }
@@ -108,14 +110,14 @@ void insertion()
 			}
 		}
 	}
-
-	printf("Inorder:");
+	printf("\n");
+	printf(" INORDER  : ");
 	inorder(root);
 	printf("\n");
-	printf("Preorder: ");
+	printf(" PREORDER : ");
 	preorder(root);
 	printf("\n");
-	printf("Postorder: ");
+	printf(" POSTODER : ");
 	postorder(root);
 	printf("\n");
 }
@@ -125,16 +127,14 @@ void main()
 	int ch;
 	while(1)
 	{
-		printf("\n 1.INSERT \n 2.SEARCH \n 3.EXIT");
+		printf("\n 1.INSERT \n 2.EXIT");
 		printf("\n Enter your choice : ");
 		scanf("%d", &ch);	
 		switch(ch)
 		{
 			case 1: insertion();
 				break;
-			//case 2: search();
-			//	break;
-			case 3: exit(0);
+			case 2: exit(0);
 				break;
 			default : printf("\n INVALID CHOICE !!!!  ;( ");		
 		}
