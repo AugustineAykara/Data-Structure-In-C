@@ -3,10 +3,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
 struct node {
 	int data;
 	struct node *lc, *rc;
 }*root = NULL;
+
 
 struct node *createNode(int item)
 {
@@ -19,6 +21,7 @@ struct node *createNode(int item)
 
 	return n;
 }
+
 
 void inorder(struct node *r)
 {
@@ -33,19 +36,23 @@ void inorder(struct node *r)
 	}
 	
 }
+
+
 void preorder(struct node *r)
 {
 	struct node *ptr;
 	ptr = r;
 
 	if(ptr != NULL)
-	{
+	{	
 		printf(" %d ", ptr -> data);
 		preorder(ptr -> lc);
 		preorder(ptr -> rc);	
 	}
 	
 }
+
+
 void postorder(struct node *r)
 {
 	struct node *ptr;
@@ -54,11 +61,12 @@ void postorder(struct node *r)
 	if(ptr != NULL)
 	{
 		postorder(ptr -> lc);
-		postorder(ptr -> rc);	
-		printf(" %d ", ptr -> data);
+		postorder(ptr -> rc);
+		printf(" %d ", ptr -> data);	
 	}
 	
 }
+
 
 void insertion()
 {
@@ -108,17 +116,52 @@ void insertion()
 			}
 		}
 	}
-
-	printf("Inorder:");
+	printf("\n");
+	printf(" INORDER  : ");
 	inorder(root);
 	printf("\n");
-	printf("Preorder: ");
+	printf(" PREORDER : ");
 	preorder(root);
 	printf("\n");
-	printf("Postorder: ");
+	printf(" POSTODER : ");
 	postorder(root);
 	printf("\n");
 }
+
+
+void search()
+{
+	int ele, flag = 0;
+	struct node *ptr; 
+	printf("\n Enter your element to be searched : ");
+	scanf("%d", &ele);
+
+	ptr = root;
+	while (ptr != NULL && flag != 1)
+	{
+		if(ptr -> data < ele)
+		{
+			ptr = ptr -> rc;			
+		}
+		else if(ptr -> data > ele)
+		{
+			ptr = ptr -> lc;		
+		}
+		else
+		{
+			flag = 1;
+			printf("\n Element FOUND !!!!!!  :) ");
+			break;	
+		}
+	}
+	if (flag == 0)
+	{
+		printf("\n Element NOT FOUND !!!! :( ");
+	}
+
+	printf("\n");
+}
+
 
 void main()
 {
@@ -131,11 +174,11 @@ void main()
 		switch(ch)
 		{
 			case 1: insertion();
-				break;
-			//case 2: search();
-			//	break;
+					break;
+			case 2: search();
+					break;
 			case 3: exit(0);
-				break;
+					break;
 			default : printf("\n INVALID CHOICE !!!!  ;( ");		
 		}
 	}	
