@@ -72,7 +72,7 @@ void insertion()
 {
 	int item, flag = 0;
 	struct node *ptr, *parent, *n; 
-	printf("\n Enter your item to be inserted : ");
+	printf("\n Enter the item to be inserted : ");
 	scanf("%d", &item);
 
 	n = createNode(item);	
@@ -133,7 +133,7 @@ void search()
 {
 	int ele, flag = 0;
 	struct node *ptr; 
-	printf("\n Enter your element to be searched : ");
+	printf("\n Enter the element to be searched : ");
 	scanf("%d", &ele);
 
 	ptr = root;
