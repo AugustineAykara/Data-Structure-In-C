@@ -22,5 +22,3 @@ void main()
       printf("\n After Concatenation : %s ", str1);
       printf("\n");
 }
-
-
