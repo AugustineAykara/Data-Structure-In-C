@@ -32,7 +32,9 @@ void traverse()
 		}
 	}
 }
-
+while 1{
+	printf("lol");
+}
 
 
 void insertBeg(int value)
