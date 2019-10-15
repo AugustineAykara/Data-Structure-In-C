@@ -5,10 +5,10 @@ void main()
 {
       char str1[20], str2[20], i=0, j;
 
-      printf("\n Enter first string : ");
+      printf("\n Enter 1st string : ");
       scanf("%s", str1);
 
-      printf("\n Enter second string : ");
+      printf("\n Enter 2nd string : ");
       scanf("%s", str2);
 
       while(str1[i] != '\0')
