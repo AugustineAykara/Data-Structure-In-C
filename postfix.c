@@ -118,11 +118,11 @@ void main()
 {
     char infix[15],postfix[15];
 
-    printf("\n Enter the infix expression  : ");
+    printf("\n Enter the infix expression :");
     scanf("%s", infix);
 
     infixToPostfix(infix, postfix);
-    printf(" The postfix expression is   : %s",postfix);
+    printf(" The postfix expression is :%s",postfix);
 
     postfixEvaluation(postfix);
 
