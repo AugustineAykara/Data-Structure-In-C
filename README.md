@@ -1,5 +1,5 @@
 # Data-Structure-In-C
-This is a repository used to host various programs in C language as a part of our Data Structure lab. <br />The programs that have been completed so far are
+This is a repository used to host various programs in C language as a part of our Data Structure lab. <br />The programs that have been completed so far are as follows:
 
 1. Different Searching methods
 2. Different Sorting methods
